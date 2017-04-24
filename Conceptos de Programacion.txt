@@ -1,0 +1,9 @@
+Los conceptos de programacion utilizados en el videojuego Manzanas fueron:
+
+Utilizamos dos conceptos de busqueda de un elemento en una lista, ya que el juego requiere buscar un numero en una lista.
+Busqueda Seleccion:
+
+Busqueda Burbuja:
+
+Tambien utilizamos dos conceptos de ordenamiento de una lista, ya que en el juego, el jugador debe ordenar una lista de numeros
+desordenados para poder ganar.
