@@ -1,9 +1,86 @@
 Los conceptos de programacion utilizados en el videojuego Manzanas fueron:
 
 Utilizamos dos conceptos de busqueda de un elemento en una lista, ya que el juego requiere buscar un numero en una lista.
-Busqueda Seleccion:
+Busqueda Lineal:
+Consiste en buscar el elemento comparándolo secuencialmente (de ahí su nombre) con cada elemento del arreglo o conjunto de datos hasta que se encuentre, o hasta que se llegue al final del arreglo. La existencia se puede asegurar desde el momento que el elemento es localizado, pero no podemos asegurar la no existencia hasta no haber analizado todos los elementos del arreglo. A continuación se muestra el pseudocódigo del algoritmo:
+Datos de Entrada:
+vec: vector en el que se desea buscar el elemento
+tam: tamaño del vector
+dato: elemento que se quiere buscar.
 
-Busqueda Burbuja:
+Variables
+pos: posición actual en el array
+
+pos = 0
+Mientras pos < tam:
+Si vec[pos]== dato devolver verdadero y/o pos, de lo contrario:
+pos = pos + 1
+
+Fin (Mientras)
+Devolver falso
+
+Busqueda Binaria:
+
+Este algoritmo reduce el tiempo de búsqueda considerablemente, ya que disminuye exponencialmente con el número de iteraciones.
+Para implementar este algoritmo se compara el elemento a buscar con un elemento cualquiera del arreglo o conjunto de datos (habitualmente el elemento en la posición central del arreglo),
+si el valor de éste es mayor que el del elemento buscado se 
+repite el procedimiento en la parte del arreglo que va desde el inicio de éste hasta el elemento tomado, 
+en caso contrario se toma la parte del arreglo que va desde el elemento tomado hasta el final.
+A continuación se presenta el pseudocódigo del algoritmo, tomando como elemento inicial el elemento central del arreglo.
+Datos de Entrada:
+vec: vector en el que se desea buscar el elemento
+tam: tamaño del vector
+dato: elemento que se quiere buscar.
+
+Variables
+centro: elemento central del intervalo
+inf: límite inferior del intervalo
+sup: límite superior del intervalo
+
+inf = 0
+sup = tam–1
+
+Mientras inf <= sup:
+centro = ((sup + inf) / 2) /* división entera: se trunca la parte decimal */
+Si vec[centro] == dato devolver verdadero y/o pos, de lo contrario:
+Si dato < vec[centro] entonces:
+sup=centro–1
+En caso contrario:
+inf=centro+1
+
+Fin (Mientras)
+Devolver Falso
 
 Tambien utilizamos dos conceptos de ordenamiento de una lista, ya que en el juego, el jugador debe ordenar una lista de numeros
 desordenados para poder ganar.
+
+Ordenamiento de Seleccion:
+Consiste en encontrar el menor de todos los elementos del arreglo o vector e intercambiarlo con el que está en la primera posición. 
+Su funcionamiento se puede definir de forma general como:
+
+-Buscar el mínimo elemento entre una posición i y el final de la lista
+-Intercambiar el mínimo con el elemento de la posición i
+Así, se puede escribir el siguiente pseudocódigo para ordenar una lista:
+minimo = i;
+   para j=i+1 hasta n
+       si lista[j] < lista[minimo] entonces
+           minimo = j 
+       fin si
+   fin para
+   intercambiar(lista[i], lista[minimo])
+
+Ordenamiento Burbuja:
+
+Funciona revisando cada elemento de la lista que va a ser ordenada con el siguiente, intercambiándolos de posición si están en el orden equivocado. 
+Es necesario revisar varias veces toda la lista hasta que no se necesiten más intercambios, lo cual significa que la lista está ordenada.
+Es decir, El procedimiento de la burbuja es el siguiente: Ir comparando desde la casilla 0 número tras número hasta encontrar uno mayor, 
+si este es realmente el mayor de todo el vector se llevará hasta la última casilla, si no es así, será reemplazado por uno mayor que él.
+Este procedimiento seguirá así hasta que haya ordenado todas las casillas del vector. Una de las deficiencias del algoritmo es que 
+ya cuando a ordenado parte del vector vuelve a compararlo cuando esto ya no es necesario.
+Así, se puede escribir el siguiente pseudocódigo para ordenar una lista:
+for(j=0; j < n-1; j++){          T(n)
+  if(vec[j] > vec[j+1]){         T(1)
+    aux=vec[j];                  T(1)
+    vec[j]=vec[j+1];             T(1)
+    vec[j+1]=aux;}               T(1)
+ } }
